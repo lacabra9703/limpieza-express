@@ -1,0 +1,96 @@
+<div id="fondo" class="container-fluid">
+<div class="row p-5">
+    <div class="col-4  m-5">
+    <div class="card">
+        <div class="card-header bg-success">
+        Limpieza
+        </div>
+        <div class="card-body">
+        <form [formGroup]="productForm">
+
+            <div class="col-12">
+            <label for=""></label>
+            <input type="text" class="form-control" [hidden]="true" formControlName="id" placeholder="Ingrese el ID"> 
+            </div>
+
+            <div class="col-12">
+            <label for="">Nombre</label>
+            <input type="text" class="form-control" formControlName="nombre">
+            <div class="text-danger">
+                @if (productForm.controls['nombre'].touched) 
+                {
+                @if (productForm.controls['nombre'].errors?.['required']) 
+                {
+                    <span>EL NOMBRE NO PUEDE ESTAR VACIO</span>
+                }
+                }
+            </div>
+            </div>
+
+            <div class="col-12">
+            <label for="">Servicio</label>
+            <input type="text" class="form-control" formControlName="servicio">
+            </div>
+            
+            <div class="row pt-3">
+            <div class="col-6 text-center">
+                <button class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
+            </div>
+            <div class="col-6 text-center">
+                @if(productForm.controls['id'].value==1)
+                {
+                <button class="btn btn-success" [disabled]="productForm.invalid" (click)="onSave()">Crear</button>
+                }
+                @else
+                {
+                <button class="btn btn-warning" [disabled]="productForm.invalid" (click)="onUpdate()">Actualizar</button>
+                }
+            </div>
+            </div>
+
+        </form>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="col-6 p-5">
+      <div class="card">
+        <div class="card-header bg-success">
+          <h6>Lista de Pendientes</h6>
+        </div>
+        <div class="card-body">
+         <div class="row">
+          <div class="col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Servicio</th>
+                  <th>Accion</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of productList; track $index) {
+                  <tr>
+                    <td>{{$index}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.servicio}}</td>
+                    <td>
+                      <button class="btn btn-primary" (click)="onEdit(item)">Editar</button>
+                      <button class="btn btn-danger mx-2" (click)="onDelete(item.id)">Eliminar</button>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+         </div> 
+        </div>
+      </div>
+    </div>
+  
+</div>  
+  
+</div>

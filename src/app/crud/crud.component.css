@@ -1,0 +1,6 @@
+#fondo{
+    background-image: url("/assets/janitorthresh.png");
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}

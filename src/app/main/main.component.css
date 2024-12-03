@@ -1,0 +1,39 @@
+.navbar{
+    background-color: cornflowerblue;
+}
+
+#barra a, button{
+    font-size: 17px;
+    font-weight:bold;
+    color: white; 
+}
+
+#titulo{
+    background-color: rgba(100, 148, 237, 0.849);
+    border-radius: 40px;
+    padding: 7%;
+}
+
+#fondo{
+    background-image: url("/assets/fondo.png");
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+#fondo2{
+    background-image: url("/assets/janitorthresh.png");
+    background-size: contain;
+    min-height: 100vh;
+}
+
+#formulario{
+    background-color: rgba(100, 148, 237, 0.849);
+    border-radius: 40px;
+    padding: 7%;
+}
+
+#formulario label{
+    padding-top: 15px;
+    font-size: 15px;
+}
